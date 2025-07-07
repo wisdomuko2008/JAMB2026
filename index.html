@@ -1,82 +1,101 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>JAMB2026 Simulator</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>JAMB 2026 | Flexi Tutors</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f4f4f4;
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f4f4f4; }
+    header, footer { background: #007bff; color: white; padding: 1rem; text-align: center; }
+    section { padding: 2rem; background: white; margin: 1rem; border-radius: 10px; }
+    .button { padding: 0.7rem 1.5rem; background: #007bff; color: white; text-decoration: none; border-radius: 5px; }
+    .floating-btn {
+      position: fixed; bottom: 20px; right: 20px;
+      background: #25D366; color: white; border-radius: 50%; padding: 15px;
+      box-shadow: 2px 2px 5px rgba(0,0,0,0.3); z-index: 999;
     }
-    .floating-buttons {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
+    .telegram-float {
+      position: fixed; bottom: 80px; right: 20px;
+      background-color: #0088cc; border-radius: 50%;
+      padding: 14px; z-index: 998;
     }
-    .floating-buttons a {
-      background: #25d366;
-      color: white;
-      padding: 10px 15px;
-      text-decoration: none;
-      border-radius: 50px;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-weight: bold;
-    }
-    .floating-buttons a.telegram {
-      background: #0088cc;
-    }
-    .simulator {
-      padding: 40px 20px;
-      max-width: 800px;
-      margin: auto;
-      background: white;
-      box-shadow: 0 0 10px rgba(0,0,0,0.05);
-      margin-top: 60px;
-    }
-    .simulator h1 {
-      text-align: center;
-    }
-    .question {
-      margin-bottom: 20px;
-    }
+    .telegram-float img { width: 32px; height: 32px; }
   </style>
 </head>
 <body>
 
-  <div class="simulator">
-    <h1>JAMB 2026 CBT Simulator</h1>
-    <p>This is a simple simulator. More questions will be loaded soon.</p>
+<header>
+  <h1>Welcome to JAMB 2026 Portal</h1>
+</header>
 
-    <div class="question">
-      <strong>1. What is the capital of Nigeria?</strong><br>
-      <input type="radio" name="q1"> Lagos<br>
-      <input type="radio" name="q1"> Abuja<br>
-      <input type="radio" name="q1"> Kano<br>
-      <input type="radio" name="q1"> Port Harcourt<br>
-    </div>
+<section>
+  <h2>JAMB Countdown</h2>
+  <p id="countdown"></p>
+</section>
 
-    <div class="question">
-      <strong>2. Who wrote "Things Fall Apart"?</strong><br>
-      <input type="radio" name="q2"> Wole Soyinka<br>
-      <input type="radio" name="q2"> Chinua Achebe<br>
-      <input type="radio" name="q2"> Chimamanda Adichie<br>
-      <input type="radio" name="q2"> Ken Saro-Wiwa<br>
-    </div>
-  </div>
+<section>
+  <h2>Take the JAMB CBT Simulator</h2>
+  <p>Choose subjects and start practicing under real exam conditions.</p>
+  <a class="button" href="#">Coming Soon</a>
+</section>
 
-  <div class="floating-buttons">
-    <a href="https://wa.me/2349034159839" target="_blank">💬 WhatsApp</a>
-    <a href="https://t.me/2349034159839" target="_blank" class="telegram">📨 Telegram</a>
-  </div>
+<section>
+  <h2>Testimonials</h2>
+  <blockquote>“Flexi Tutors helped me score 320 in JAMB!”</blockquote>
+  <blockquote>“The simulator is so real and useful.”</blockquote>
+</section>
+
+<section>
+  <h2>FAQs</h2>
+  <p><strong>Q:</strong> How do I register?<br/><strong>A:</strong> Just click on login or signup.</p>
+</section>
+
+<section>
+  <h2>Study Tips</h2>
+  <ul>
+    <li>Practice daily using the simulator</li>
+    <li>Join online study groups</li>
+    <li>Follow a timetable</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Need Help?</h2>
+  <p>Chat with us directly via WhatsApp or Telegram.</p>
+</section>
+
+<!-- WhatsApp Floating Button -->
+<a href="https://wa.me/2349034159839" class="floating-btn" target="_blank">
+  <img src="https://img.icons8.com/ios-filled/50/ffffff/whatsapp.png" style="width:32px;height:32px;">
+</a>
+
+<!-- Telegram Floating Button -->
+<a href="https://t.me/09034159839" class="telegram-float" target="_blank">
+  <img src="https://img.icons8.com/ios-filled/50/ffffff/telegram-app.png" alt="Telegram">
+</a>
+
+<!-- Countdown Script -->
+<script>
+  const examDate = new Date("2026-04-27T08:00:00").getTime();
+  const timer = setInterval(() => {
+    const now = new Date().getTime();
+    const diff = examDate - now;
+    if (diff < 0) {
+      clearInterval(timer);
+      document.getElementById("countdown").innerHTML = "JAMB 2026 has started!";
+    } else {
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      document.getElementById("countdown").innerHTML = days + "d " + hours + "h " + mins + "m left";
+    }
+  }, 60000);
+</script>
+
+<footer>
+  <p>&copy; 2025 Flexi Tutors. All rights reserved.</p>
+</footer>
 
 </body>
 </html>
