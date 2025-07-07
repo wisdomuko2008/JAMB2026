@@ -1,108 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>JAMB 2026 | Flexi Tutors</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JAMB2026 Simulator</title>
   <style>
     body {
       font-family: Arial, sans-serif;
       margin: 0;
-      background: #f3f3f3;
-      color: #333;
-      text-align: center;
+      padding: 0;
+      background: #f4f4f4;
     }
-    header {
-      background: #004aad;
-      color: white;
-      padding: 1em 0;
-    }
-    nav a {
-      color: white;
-      margin: 0 1em;
-      text-decoration: none;
-    }
-    .hero {
-      padding: 2em;
-    }
-    .countdown, .testimonials, .faq, .study-tips, .newsletter, .chat {
-      margin: 2em 0;
-      padding: 1em;
-      background: white;
-      border-radius: 8px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      max-width: 800px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .floating-help {
+    .floating-buttons {
       position: fixed;
       bottom: 20px;
       right: 20px;
-      background: #004aad;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .floating-buttons a {
+      background: #25d366;
       color: white;
-      padding: 1em;
-      border-radius: 50%;
-      font-size: 20px;
+      padding: 10px 15px;
       text-decoration: none;
+      border-radius: 50px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: bold;
+    }
+    .floating-buttons a.telegram {
+      background: #0088cc;
+    }
+    .simulator {
+      padding: 40px 20px;
+      max-width: 800px;
+      margin: auto;
+      background: white;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+      margin-top: 60px;
+    }
+    .simulator h1 {
+      text-align: center;
+    }
+    .question {
+      margin-bottom: 20px;
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Flexi Tutors - JAMB 2026</h1>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="simulator.html">Simulator</a>
-      <a href="login.html">Login</a>
-      <a href="signup.html">Sign Up</a>
-    </nav>
-  </header>
-  <div class="hero">
-    <h2>Get Ready for JAMB 2026!</h2>
-    <div class="countdown">
-      <h3>Countdown to Exam:</h3>
-      <p id="timer">Loading...</p>
+
+  <div class="simulator">
+    <h1>JAMB 2026 CBT Simulator</h1>
+    <p>This is a simple simulator. More questions will be loaded soon.</p>
+
+    <div class="question">
+      <strong>1. What is the capital of Nigeria?</strong><br>
+      <input type="radio" name="q1"> Lagos<br>
+      <input type="radio" name="q1"> Abuja<br>
+      <input type="radio" name="q1"> Kano<br>
+      <input type="radio" name="q1"> Port Harcourt<br>
     </div>
-    <div class="testimonials">
-      <h3>What Our Students Say</h3>
-      <p>⭐⭐⭐⭐⭐ “Flexi Tutors helped me score 310 in JAMB!” - Joy U.</p>
-    </div>
-    <div class="faq">
-      <h3>FAQs</h3>
-      <p><strong>Q:</strong> Is this free? <br><strong>A:</strong> Yes, 100% free!</p>
-    </div>
-    <div class="study-tips">
-      <h3>Study Tips</h3>
-      <p>Revise past questions, take mock tests and follow a schedule.</p>
-    </div>
-    <div class="newsletter">
-      <h3>Subscribe to Updates</h3>
-      <input type="email" placeholder="Enter your email" />
-      <button>Subscribe</button>
-    </div>
-    <div class="chat">
-      <h3>Need Help?</h3>
-      <p>Reach us anytime via the live chat below.</p>
+
+    <div class="question">
+      <strong>2. Who wrote "Things Fall Apart"?</strong><br>
+      <input type="radio" name="q2"> Wole Soyinka<br>
+      <input type="radio" name="q2"> Chinua Achebe<br>
+      <input type="radio" name="q2"> Chimamanda Adichie<br>
+      <input type="radio" name="q2"> Ken Saro-Wiwa<br>
     </div>
   </div>
-  <a class="floating-help" href="#">?</a>
-  <script>
-    const timerElement = document.getElementById("timer");
-    const targetDate = new Date("April 19, 2026 08:00:00").getTime();
-    setInterval(() => {
-      const now = new Date().getTime();
-      const distance = targetDate - now;
-      if (distance < 0) {
-        timerElement.innerHTML = "Exam time!";
-        return;
-      }
-      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const mins = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      const secs = Math.floor((distance % (1000 * 60)) / 1000);
-      timerElement.innerHTML = `${days}d ${hours}h ${mins}m ${secs}s`;
-    }, 1000);
-  </script>
+
+  <div class="floating-buttons">
+    <a href="https://wa.me/2349034159839" target="_blank">💬 WhatsApp</a>
+    <a href="https://t.me/2349034159839" target="_blank" class="telegram">📨 Telegram</a>
+  </div>
+
 </body>
 </html>
