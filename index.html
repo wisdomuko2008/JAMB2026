@@ -2,100 +2,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>JAMB 2026 | Flexi Tutors</title>
-  <style>
-    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f4f4f4; }
-    header, footer { background: #007bff; color: white; padding: 1rem; text-align: center; }
-    section { padding: 2rem; background: white; margin: 1rem; border-radius: 10px; }
-    .button { padding: 0.7rem 1.5rem; background: #007bff; color: white; text-decoration: none; border-radius: 5px; }
-    .floating-btn {
-      position: fixed; bottom: 20px; right: 20px;
-      background: #25D366; color: white; border-radius: 50%; padding: 15px;
-      box-shadow: 2px 2px 5px rgba(0,0,0,0.3); z-index: 999;
-    }
-    .telegram-float {
-      position: fixed; bottom: 80px; right: 20px;
-      background-color: #0088cc; border-radius: 50%;
-      padding: 14px; z-index: 998;
-    }
-    .telegram-float img { width: 32px; height: 32px; }
-  </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ultron CBT Simulator</title>
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
-<header>
-  <h1>Welcome to JAMB 2026 Portal</h1>
-</header>
-
-<section>
-  <h2>JAMB Countdown</h2>
-  <p id="countdown"></p>
-</section>
-
-<section>
-  <h2>Take the JAMB CBT Simulator</h2>
-  <p>Choose subjects and start practicing under real exam conditions.</p>
-  <a class="button" href="#">Coming Soon</a>
-</section>
-
-<section>
-  <h2>Testimonials</h2>
-  <blockquote>“Flexi Tutors helped me score 320 in JAMB!”</blockquote>
-  <blockquote>“The simulator is so real and useful.”</blockquote>
-</section>
-
-<section>
-  <h2>FAQs</h2>
-  <p><strong>Q:</strong> How do I register?<br/><strong>A:</strong> Just click on login or signup.</p>
-</section>
-
-<section>
-  <h2>Study Tips</h2>
-  <ul>
-    <li>Practice daily using the simulator</li>
-    <li>Join online study groups</li>
-    <li>Follow a timetable</li>
-  </ul>
-</section>
-
-<section>
-  <h2>Need Help?</h2>
-  <p>Chat with us directly via WhatsApp or Telegram.</p>
-</section>
-
-<!-- WhatsApp Floating Button -->
-<a href="https://wa.me/2349034159839" class="floating-btn" target="_blank">
-  <img src="https://img.icons8.com/ios-filled/50/ffffff/whatsapp.png" style="width:32px;height:32px;">
-</a>
-
-<!-- Telegram Floating Button -->
-<a href="https://t.me/09034159839" class="telegram-float" target="_blank">
-  <img src="https://img.icons8.com/ios-filled/50/ffffff/telegram-app.png" alt="Telegram">
-</a>
-
-<!-- Countdown Script -->
-<script>
-  const examDate = new Date("2026-04-27T08:00:00").getTime();
-  const timer = setInterval(() => {
-    const now = new Date().getTime();
-    const diff = examDate - now;
-    if (diff < 0) {
-      clearInterval(timer);
-      document.getElementById("countdown").innerHTML = "JAMB 2026 has started!";
-    } else {
-      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-      document.getElementById("countdown").innerHTML = days + "d " + hours + "h " + mins + "m left";
-    }
-  }, 60000);
-</script>
-
-<footer>
-  <p>&copy; 2025 Flexi Tutors. All rights reserved.</p>
-</footer>
-
+    <div id="app">
+        <h1>CBT Simulator</h1>
+        <p>Welcome! Select your subjects and begin your test.</p>
+        <button onclick="startExam()">Start Exam</button>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>
